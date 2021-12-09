@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
-   
-    //public int damage = 20;
 
-    //public LineRenderer lineRenderer;
+    public Animator gunAnimator;
+
+    //public int damage = 20;
+    //public EnemyAI.Basic seeker;
+
    public float fireRate;
 
     float ReadyForNextShot;
@@ -25,7 +28,6 @@ public class Shooting : MonoBehaviour
                 ReadyForNextShot = Time.time + 1 / fireRate;
                 Shoot();
             }
-            //Shoot();
         }
     }
     void Shoot()
@@ -33,21 +35,16 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); 
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        gunAnimator.SetTrigger("Shoot");
 
-        //if (bullet)
+        //RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
+        //if (hitInfo)
         //{
-        //    Enemy enemy = bullet.transform.GetComponent<Enemy>();
-        //    if (enemy != null)
+        //    EnemyAI enemyAi = bullet.transform.GetComponent<EnemyAI>();
+        //    if (Seeker != null)
         //    {
-        //        enemy.TakeDamage(damage);
+        //        Seeker.TakeDamage(damage);
         //    }
-        //}
-        //    lineRenderer.SetPosition(0, firePoint.position);
-        //    lineRenderer.SetPosition(1, bullet.point);
-        //} else
-        //{
-        //    lineRenderer.SetPosition(0, firePoint.position);
-        //    lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
         //}
     }
 

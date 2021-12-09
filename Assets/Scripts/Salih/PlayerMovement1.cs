@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerMovement1 : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
+    [SerializeField] private float walkSpeed = 3f;
+    [SerializeField] private float sprintSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
 
@@ -16,6 +17,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     void Update()
     {
+        moveSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 

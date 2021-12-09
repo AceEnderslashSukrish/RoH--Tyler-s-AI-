@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     int maxhp;
     int waveHP = 15;
 
-    Seeker seeker;
+    public Seeker seeker;
     Rigidbody2D rigid;
     
     // Start is called before the first frame update
