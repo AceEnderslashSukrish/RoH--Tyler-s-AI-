@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5169355783550422877}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,8 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497e875955ba35f419c5ebba3ccad3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicZombie: {fileID: 3843374292229995742, guid: fb72592aad5111f40868df61890cde41,
+    type: 3}
   hitEffect: {fileID: 2264345210519996641, guid: 46e17e585c40afc428dd85639335c54c,
     type: 3}
+  trailRenderer: {fileID: 0}
 --- !u!96 &-5169355783550422877
 TrailRenderer:
   serializedVersion: 2

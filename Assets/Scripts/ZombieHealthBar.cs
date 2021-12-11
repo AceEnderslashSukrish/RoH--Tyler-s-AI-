@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerHealthBar : MonoBehaviour
+public class ZombieHealthBar : MonoBehaviour
 {
-    
     public int maxHealth = 100;
-    public int currentHealth = 100;
-    public GameObject player;
+    public int currentHealth;
+
+    public Animator animator;
     public EnemyAI enemyAi;
     public HealthBar healthBar;
     public GameObject basicZombie;
-    
+
 
 
     // Start is called before the first frame update
@@ -27,17 +26,17 @@ public class PlayerHealthBar : MonoBehaviour
     {
         if (currentHealth == 0)
         {
-            Destroy(player);
+            Destroy(basicZombie);
+           
         }
-        
-        
-
     }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+
+        animator.SetTrigger("TakeDamage");
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -49,5 +48,6 @@ public class PlayerHealthBar : MonoBehaviour
         {
             TakeDamage(20);
         }
+        animator.SetTrigger("OnCollisionEnter2D");
     }
 }

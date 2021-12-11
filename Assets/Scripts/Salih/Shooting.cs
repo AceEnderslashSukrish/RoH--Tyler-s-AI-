@@ -37,15 +37,7 @@ public class Shooting : MonoBehaviour
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         gunAnimator.SetTrigger("Shoot");
 
-        //RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
-        //if (hitInfo)
-        //{
-        //    EnemyAI enemyAi = bullet.transform.GetComponent<EnemyAI>();
-        //    if (Seeker != null)
-        //    {
-        //        Seeker.TakeDamage(damage);
-        //    }
-        //}
+        
     }
 
 }

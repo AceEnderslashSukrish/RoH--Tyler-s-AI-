@@ -5,6 +5,9 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    public GameObject healthBar;
+    public PlayerHealthBar playerHealthBar;
+    
     public Transform player;
     public Transform plants;
     public Transform target;
@@ -70,7 +73,7 @@ public class EnemyAI : MonoBehaviour
             do
             {
                 velocity += baseAccel * 10;
-            } while (velocity < baseSpeed * 12.5);
+            } while (velocity < baseSpeed * 3.5);
         }
         
     }
@@ -89,7 +92,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == player.name)
+          if (col.gameObject.tag == player.name)
         {
             mike.GetComponent<Stats>().takeDamage(5);
         }
@@ -98,6 +101,7 @@ public class EnemyAI : MonoBehaviour
             leaf.GetComponent<PlantStats>().takeDamage(10);
         }
     }
+   
 
     // At this point, I'm honestly following the tutorial. AI is hard, man.
     void FixedUpdate()
