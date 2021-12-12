@@ -164,8 +164,8 @@ GameObject:
   - component: {fileID: 3843374292229995715}
   - component: {fileID: 3843374292229995740}
   - component: {fileID: 3843374292229995741}
-  - component: {fileID: 3843374292229995719}
   - component: {fileID: 143027572}
+  - component: {fileID: 143027575}
   m_Layer: 0
   m_Name: BasicZombie
   m_TagString: BasicZombie
@@ -182,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 3843374292229995742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.77, y: 3.89, z: -25.772375}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.18468831, y: 0.16099265, z: 4}
   m_Children:
   - {fileID: 3843374292609311288}
   m_Father: {fileID: 0}
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 80b19fcf06a8ae9459a54be1e441cb85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,7 +252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3843374292621437215}
-  playerHealthBar: {fileID: 3843374292229995719}
   player: {fileID: 0}
   plants: {fileID: 0}
   target: {fileID: 0}
@@ -260,9 +259,9 @@ MonoBehaviour:
   door: {fileID: 0}
   leaf: {fileID: 0}
   EnemyType: Basic
-  baseSpeed: 200
-  velocity: 200
-  baseAccel: 2
+  baseSpeed: 12000
+  velocity: 12000
+  baseAccel: 2500
   NextWaypoint: 3
   seeker: {fileID: 3843374292229995741}
 --- !u!50 &3843374292229995715
@@ -277,7 +276,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -299,9 +298,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22149467, y: -0.14710188}
+  m_Offset: {x: 0.024791228, y: -0.015926274}
   serializedVersion: 2
-  m_Radius: 1.5531507
+  m_Radius: 1.5443534
 --- !u!114 &3843374292229995741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,24 +329,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &3843374292229995719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3843374292229995742}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81cb7ce8d9c3efc4484ed0a2e28deba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  player: {fileID: 0}
-  enemyAi: {fileID: 0}
-  healthBar: {fileID: 3843374292621437212}
-  basicZombie: {fileID: 3843374292229995742}
 --- !u!114 &143027572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,9 +343,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  animator: {fileID: 143027575}
   enemyAi: {fileID: 0}
   healthBar: {fileID: 3843374292621437212}
   basicZombie: {fileID: 3843374292229995742}
+--- !u!95 &143027575
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3843374292229995742}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41607f47d0fd87b4a824d9c804257087, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3843374292609311289
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +378,6 @@ GameObject:
   - component: {fileID: 3843374292609311292}
   - component: {fileID: 3843374292609311293}
   - component: {fileID: 3843374292609311294}
-  - component: {fileID: 3843374292609311295}
   m_Layer: 5
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -393,7 +393,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3843374292609311289}
   m_LocalRotation: {x: -0, y: 0.9848078, z: -0, w: -0.17364809}
-  m_LocalPosition: {x: 0, y: 0, z: 73.6}
+  m_LocalPosition: {x: 0, y: 0, z: 73.603}
   m_LocalScale: {x: 0.14667521, y: 0.04659972, z: 0.00711234}
   m_Children:
   - {fileID: 3843374292621437214}
@@ -402,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.65, y: -3.25}
-  m_SizeDelta: {x: 41.3303, y: 10.0869}
+  m_AnchoredPosition: {x: -0.12, y: -2.54}
+  m_SizeDelta: {x: 11.529, y: 9.327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3843374292609311292
 Canvas:
@@ -424,7 +424,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 1693045697
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &3843374292609311293
 MonoBehaviour:
@@ -466,21 +466,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3843374292609311295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3843374292609311289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede3fce07ac422546b93d4edac2d5162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 2500
-  player: {fileID: 0}
-  alerted: 0
 --- !u!1 &3843374292621437215
 GameObject:
   m_ObjectHideFlags: 0
