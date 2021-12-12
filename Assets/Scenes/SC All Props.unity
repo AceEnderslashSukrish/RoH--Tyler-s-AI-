@@ -424,6 +424,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3843374292372476339}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &143027572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3843374292229995712, guid: fb72592aad5111f40868df61890cde41,
+    type: 3}
+  m_PrefabInstance: {fileID: 3843374292372476339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &143027575
 Animator:
   serializedVersion: 3
@@ -6720,11 +6726,21 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2994246952416064130, guid: 392d3a168978c7e4f8d9415edb6dacc8,
+        type: 3}
+      propertyPath: basicZombie
+      value: 
+      objectReference: {fileID: 143027565}
     - target: {fileID: 2994246952416064136, guid: 392d3a168978c7e4f8d9415edb6dacc8,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2994246952416064140, guid: 392d3a168978c7e4f8d9415edb6dacc8,
+        type: 3}
+      propertyPath: x
+      value: 
+      objectReference: {fileID: 143027572}
     - target: {fileID: 2994246952416064140, guid: 392d3a168978c7e4f8d9415edb6dacc8,
         type: 3}
       propertyPath: BasicZombie
@@ -6855,6 +6871,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.31069446
       objectReference: {fileID: 0}
+    - target: {fileID: 2994246953672937288, guid: 392d3a168978c7e4f8d9415edb6dacc8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 632.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994246953672937288, guid: 392d3a168978c7e4f8d9415edb6dacc8,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 62.24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392d3a168978c7e4f8d9415edb6dacc8, type: 3}
 --- !u!1001 &3843374292372476339
@@ -6901,12 +6927,12 @@ PrefabInstance:
     - target: {fileID: 3843374292229995712, guid: fb72592aad5111f40868df61890cde41,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.7651
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3843374292229995712, guid: fb72592aad5111f40868df61890cde41,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8916
+      value: 12.22
       objectReference: {fileID: 0}
     - target: {fileID: 3843374292229995712, guid: fb72592aad5111f40868df61890cde41,
         type: 3}
@@ -6948,6 +6974,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3843374292229995714, guid: fb72592aad5111f40868df61890cde41,
+        type: 3}
+      propertyPath: leaf
+      value: 
+      objectReference: {fileID: 1684154763}
+    - target: {fileID: 3843374292229995714, guid: fb72592aad5111f40868df61890cde41,
+        type: 3}
+      propertyPath: mike
+      value: 
+      objectReference: {fileID: 510208771}
     - target: {fileID: 3843374292229995714, guid: fb72592aad5111f40868df61890cde41,
         type: 3}
       propertyPath: plants

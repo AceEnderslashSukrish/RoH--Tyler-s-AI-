@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Timers;
 
 public class PlayerHealthBar : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerHealthBar : MonoBehaviour
     public EnemyAI enemyAi;
     public HealthBar healthBar;
     public GameObject basicZombie;
+    public bool invincible = false;
+    public Timer iframes = new System.Timers.Timer();
     
 
 
@@ -20,6 +23,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        iframes.Elapsed += cooldown;
     }
 
     // Update is called once per frame
@@ -29,9 +33,6 @@ public class PlayerHealthBar : MonoBehaviour
         {
             Destroy(player);
         }
-        
-        
-
     }
     public void TakeDamage(int damage)
     {
@@ -39,15 +40,21 @@ public class PlayerHealthBar : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
     }
-    private void OnCollisionEnter2D(Collision2D col)
+
+    private void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("BasicZombie"))
+        if (col.gameObject.CompareTag("BasicZombie") && !invincible)
         {
             TakeDamage(20);
+            invincible = true;
+            iframes.Interval = 1000;
+            iframes.Enabled = true;
         }
-        else if (col.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(20);
-        }
+    }
+
+private void cooldown(object source, System.Timers.ElapsedEventArgs e)
+    {
+        invincible = false;
+        Destroy(player);
     }
 }

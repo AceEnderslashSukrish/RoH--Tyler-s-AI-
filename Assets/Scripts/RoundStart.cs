@@ -49,6 +49,5 @@ public class RoundStart : MonoBehaviour
             Instantiate(BasicZombie, spawnpoint, x.rotation);
             basicSpawns++;
         }
-
     }
 }

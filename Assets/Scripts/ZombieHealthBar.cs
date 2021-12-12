@@ -32,6 +32,7 @@ public class ZombieHealthBar : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
@@ -46,7 +47,7 @@ public class ZombieHealthBar : MonoBehaviour
         }
         else if (col.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(20);
+            TakeDamage(25);
         }
         animator.SetTrigger("OnCollisionEnter2D");
     }
