@@ -6,7 +6,7 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public GameObject healthBar;
-    public PlayerHealthBar playerHealthBar;
+    
     
     public Transform player;
     public Transform plants;
@@ -98,7 +98,7 @@ public class EnemyAI : MonoBehaviour
         }
         else if (col.gameObject.tag == plants.name)
         {
-            leaf.GetComponent<PlantStats>().takeDamage(10);
+            leaf.GetComponent<PlantHealthBar>().TakeDamage(10);
         }
     }
    

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - BasicZombie
+  - Plant
   layers:
   - Default
   - TransparentFX

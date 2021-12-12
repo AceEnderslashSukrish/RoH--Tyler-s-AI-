@@ -40,7 +40,7 @@ public class ZombieHealthBar : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("BasicZombie"))
+        if (col.gameObject.CompareTag("BasicZombie") && col.gameObject.tag != basicZombie.tag)
         {
             TakeDamage(20);
         }
