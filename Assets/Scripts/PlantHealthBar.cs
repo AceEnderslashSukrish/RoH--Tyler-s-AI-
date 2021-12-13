@@ -10,12 +10,18 @@ public class PlantHealthBar : MonoBehaviour
     public HealthBar healthBar;
     public GameObject plant;
 
+    public GameObject gameOver;
+    
+
     public GameObject player;
     public bool alerted = false;
     public Timer cd = new System.Timers.Timer();
 
     public float damageCd;
     float NextHit;
+
+    [HideInInspector]
+    public bool plantDestroyed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +37,16 @@ public class PlantHealthBar : MonoBehaviour
 
         if (currentHealth == 0)
         {
-
+            plantDestroyed = true;
+            Destroy(player);
+            gameOver.SetActive(true);
+            
             Destroy(plant);
+            
 
         }
     }
-    private void AlertPlayer()
-    {
 
-    }
     public void TakeDamage(int damage)
     {
 

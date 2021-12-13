@@ -17,6 +17,7 @@ public class ZombieHealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("ZombieSound");
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -47,8 +48,11 @@ public class ZombieHealthBar : MonoBehaviour
         }
         else if (col.gameObject.CompareTag("Bullet"))
         {
+            FindObjectOfType<AudioManager>().Play("ZombieHit");
             TakeDamage(25);
         }
+       
+       
         animator.SetTrigger("OnCollisionEnter2D");
     }
 }

@@ -12,8 +12,11 @@ public class RoundStart : MonoBehaviour
     int totalBasic;
     public bool firstRound = true;
     public Vector2 spawnpoint = new Vector2(-5.5f, 3.5f);
-    
-    
+
+    public float soundCd;
+    float voice;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +47,13 @@ public class RoundStart : MonoBehaviour
 
     void SpawnBasic()
     {
-        if (basicSpawns < totalBasic)
+        if (basicSpawns < totalBasic & Time.time > voice)
         {
+            voice = Time.time + 1 / soundCd;
             Instantiate(BasicZombie, spawnpoint, x.rotation);
             basicSpawns++;
+            
+            FindObjectOfType<AudioManager>().Play("ZombieSound");
         }
     }
 }

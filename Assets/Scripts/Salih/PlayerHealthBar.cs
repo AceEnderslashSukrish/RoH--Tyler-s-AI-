@@ -15,8 +15,9 @@ public class PlayerHealthBar : MonoBehaviour
     public GameObject basicZombie;
     public bool invincible = false;
     public Timer iframes = new System.Timers.Timer();
-    
-
+    [HideInInspector]
+    public bool playerDeath = false;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,10 @@ public class PlayerHealthBar : MonoBehaviour
     {
         if (currentHealth == 0)
         {
+            playerDeath = true;
+            gameOver.SetActive(true);
             Destroy(player);
+            
         }
     }
     public void TakeDamage(int damage)
