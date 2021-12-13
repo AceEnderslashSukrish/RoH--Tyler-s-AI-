@@ -12,12 +12,13 @@ public class ZombieHealthBar : MonoBehaviour
     public HealthBar healthBar;
     public GameObject basicZombie;
 
-
+    public GameObject ammoDrop;
+    public float chanceToSpawnAmmo;
 
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("ZombieSound");
+        
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -25,11 +26,19 @@ public class ZombieHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (currentHealth == 0)
         {
+
+            float spawnRate = Random.Range(0, 100f);
+            if(spawnRate <= chanceToSpawnAmmo)
+            {
+                Instantiate(ammoDrop, transform.position, Quaternion.identity);
+            }
             Destroy(basicZombie);
            
         }
+       
     }
     public void TakeDamage(int damage)
     {

@@ -8,20 +8,25 @@ public class GameController : MonoBehaviour
     private string[] scenePaths;
     private bool restart = false;
     public GameObject gameOver;
+    public GameObject waveText;
     private PlayerHealthBar playerHealthBar;
     private PlantHealthBar plantHealthBar;
-
+    
     
     void Start()
     {
+        waveText.SetActive(true);
         gameOver.SetActive(false);
-
+       
     }
 
     void Update()
     {
 
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            waveText.SetActive(false);
+        }
         //if (playerHealthBar.playerDeath || plantHealthBar.plantDestroyed)
         //{
 

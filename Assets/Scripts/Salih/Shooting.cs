@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 
 public class Shooting : MonoBehaviour
 {
@@ -14,19 +14,26 @@ public class Shooting : MonoBehaviour
 
     //public int damage = 20;
     //public EnemyAI.Basic seeker;
-
-   public float fireRate;
+    public TextMeshProUGUI ammoText;
+    public float fireRate;
+    public int maxAmmo;
+    public int currentAmmo;
 
     float ReadyForNextShot;
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+    }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && currentAmmo > 0)
         {
             if(Time.time > ReadyForNextShot)
             {
                 ReadyForNextShot = Time.time + 1 / fireRate;
                 Shoot();
+                UpdateAmmo(-1);
             }
         }
     }
@@ -40,5 +47,13 @@ public class Shooting : MonoBehaviour
 
         
     }
-
+    public void UpdateAmmo(int ammo)
+    {
+        currentAmmo += ammo;
+        if(currentAmmo > maxAmmo)
+        {
+            currentAmmo = maxAmmo;
+        }
+        ammoText.text = currentAmmo.ToString();
+    }
 }

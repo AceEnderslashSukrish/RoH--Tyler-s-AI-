@@ -12,7 +12,7 @@ public class RoundStart : MonoBehaviour
     int totalBasic;
     public bool firstRound = true;
     public Vector2 spawnpoint = new Vector2(-5.5f, 3.5f);
-
+    
     public float soundCd;
     float voice;
 
@@ -29,6 +29,7 @@ public class RoundStart : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && roundOver)
         {
+            
             firstRound = false;
             NextRound();
         }
