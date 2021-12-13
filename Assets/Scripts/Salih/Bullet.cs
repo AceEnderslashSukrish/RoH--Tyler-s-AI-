@@ -13,6 +13,13 @@ public class Bullet : MonoBehaviour
 
     {
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        if (collision.gameObject.CompareTag("BasicZombie"))
+        { 
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Collision");
+        }
         Destroy(effect, 0.5f);
         Destroy(GetComponent<TrailRenderer>());
         Destroy(gameObject);
